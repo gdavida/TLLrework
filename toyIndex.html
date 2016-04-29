@@ -26,13 +26,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   
     <link rel="stylesheet" type="text/css" href="public/main.css">
+    <link rel="stylesheet" type="text/css" href="public/toys.css">
   </head>
 
   <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-        <div class="navbar-header"> TOY LENDING LIBRARY
+        <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -44,42 +45,36 @@
       </div>
     </nav>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-m-offset-4">
-          <img class="logoImage img-responsive" src="public/tll-logo.png">
-        </div>
-        <div class="col-xs-12">
-          <h3 class="slogan">PLAY. LEARN. GROW.</h3>
-          <p class="slogan">Free toy lending library for children from birth to age five.</p>
-        </div>
-      </div>
+
+    <!-- COLOR BACKGROUND ROW -->
+    <div class="col-xs-12 col-md-4 colorRow">
     </div>
 
-    <div class="container">
+    <div class="container indexContainer">
       <!-- Example row of columns -->
-      <div class="row addNewSection">
+      <div class="row">
+
         <!-- NEW TOY -->
         <div class="col-xs-12 col-md-4 newToyMainSection">
           <p><a class="btn addToy" href="toyNew.html" role="button">
             <i class="fa fa-plus-circle fa-5x" aria-hidden="true"></i>
           </a></p>
-          <h2>New Toy</h2>
-          <p>Add a new toy to the toy inventory.</p>
+          <h3>Add New Toy</h3>
         </div>
+      </div>
 
-        <!-- COLOR BACKGROUND ROW -->
-        <div class="col-xs-12 col-md-4 colorRow">
-        </div>
-
-        <!-- NEW BOX -->
-        <div class="col-xs-12 col-md-4 newBoxMainSection">
-          <p><a class="btn addBox" href="#" role="button">
-            <i class="fa fa-plus-circle fa-5x" aria-hidden="true"></i>
-          </a></p>
-          <h2>New Box</h2>
-          <p>Create a new box, assign toys to the box, and create labels for the box.</p>
+      <div class="row toysAll">
+        <!-- LIST OF ALL TOYS -->
+        <div class="col-xs-12 col-md-4 allToysSection">
+          <h2>Toy Inventory</h2>
+          <ul>
+            <li><a href="toyShow.html">Flexi-Loops, 0 - 3 months</a></li>
+            <li>Rattle-n-Roll, 3 - 6 months</li>
+            <li>Stacking Fun Cups, 6 -12 months</li>
+            <li>Press-n-Go Inchworm, 1 year </li>
+            <li>Junior Rainbow Blocks, 2 years</li>
+            <li>Magnetic Puzzle Game - fishing, 3 - 5 years</li>
+          </ul>
         </div>
       </div>
 

@@ -1,5 +1,98 @@
+* {
+	position: relative;
+/*	outline: 1px solid red;
+*/}
 
 
-div#toyViewShow span {
-	color: green;
+/* - - - - - - - - -*/
+/* JUMBOTRON HEADER */
+/* - - - - - - - - -*/
+.jumbotron {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.jumbotron .container {
+	background: #A0D733;
+	height: 450px;
+	padding-top: 50px;
+}
+
+.logoImage {
+	max-width: 100%;
+}
+
+.slogan {
+	text-align: center;
+}
+
+
+/* - - - - - - - - -*/
+/* CONTENT */
+/* - - - - - - - - -*/
+.addNewSection {
+	bottom: 60px;
+}
+
+/*
+*
+* NEW TOY
+*
+*/
+.newToyMainSection {
+	text-align: center;
+}
+
+.addToy {
+	margin:5px auto;
+	display: block;
+	margin: 5px auto;
+}
+
+.addToy i {
+	font-size: 7em;
+	background-color: white;
+	border-radius: 50%;
+	width:99px;
+}
+.newToyMainSection h2{
+	margin-top: 0;
+}
+
+/*
+*
+* COLOR ROW
+*
+*/
+.colorRow {
+	height:140px;
+	background-color: #57A303;
+}
+
+
+/*
+*
+* NEW BOX
+*
+*/
+.newBoxMainSection {
+	text-align: center;
+	bottom: 60px;
+}
+
+.addBox {
+	margin:5px auto;
+	display: block;
+	margin: 5px auto;
+}
+
+.addBox i {
+	font-size: 7em;
+	background-color: white;
+	border-radius: 50%;
+	width:99px;
+}
+
+.newBoxMainSection h2{
+	margin-top: 0;
 }
