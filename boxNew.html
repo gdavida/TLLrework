@@ -26,6 +26,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   
     <link rel="stylesheet" type="text/css" href="public/main.css">
+    <link rel="stylesheet" type="text/css" href="public/boxes.css">
   </head>
 
   <body>
@@ -45,7 +46,7 @@
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div class="jumbotron"><!-- 
       <div class="container">
         <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-m-offset-4">
           <img class="logoImage img-responsive" src="public/tll-logo.png">
@@ -54,32 +55,71 @@
           <h3 class="slogan">PLAY. LEARN. GROW.</h3>
           <p class="slogan">Free toy lending library for children from birth to age five.</p>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div class="container">
       <!-- Example row of columns -->
       <div class="row addNewSection">
-        <!-- NEW TOY -->
-        <div class="col-xs-12 col-md-4 newToyMainSection">
-          <p><a class="btn addToy" href="toyNew.html" role="button">
-            <i class="fa fa-plus-circle fa-5x" aria-hidden="true"></i>
-          </a></p>
-          <h2>New Toy</h2>
-          <p>Add a new toy to the toy inventory.</p>
-        </div>
 
         <!-- COLOR BACKGROUND ROW -->
-        <div class="col-xs-12 col-md-4 colorRow">
+        <div class="col-xs-12 col-md-4 colorRow headerColorRow">
+          <h1>CREATE NEW BOX</h1>
         </div>
 
-        <!-- NEW BOX -->
-        <div class="col-xs-12 col-md-4 newBoxMainSection">
-          <p><a class="btn addBox" href="#" role="button">
-            <i class="fa fa-plus-circle fa-5x" aria-hidden="true"></i>
-          </a></p>
-          <h2>New Box</h2>
-          <p>Create a new box, assign toys to the box, and create labels for the box.</p>
+        <!-- NEW TOY FORM -->
+        <div class="col-xs-12 col-md-4 toyForm">
+          <form>
+            <div class="form-group">
+              <label class="control-label">Box Name:</label>
+              <input class="form-control" type="text" name="toyName" value="Toy Name"><br>
+              <label class="control-label">Age Group:</label>
+              <select class="form-control" name="Age Group">
+                <option value="volvo">0 - 3 Months</option>
+                <option value="saab">3 - 6 Months</option>
+                <option value="fiat">7 - 12 months</option>
+                <option value="audi">1 year</option>
+                <option value="audi">2 years</option>
+                <option value="audi">3 - 5 years</option>
+              </select><br>
+              <!-- LIST OF CHECKBOZES THAT DROPS WHEN YOU SELECT THAT PARTICULAR AGE GROUP -->
+              <div class="col-xs-6 ageToyChecklist">
+                <label class="checkbox"><input type="checkbox" value="">Flexi-Loops</label>
+                <label class="checkbox"><input type="checkbox" value="">Links</label>
+                <label class="checkbox"><input type="checkbox" value="">Duck</label>
+              </div>
+              <div class="col-xs-6 ageToyChecklist">
+                <label class="checkbox"><input type="checkbox" value="">Letter Book</label>
+                <label class="checkbox"><input type="checkbox" value="">Fishing Pole</label>
+                <label class="checkbox"><input type="checkbox" value="">Football</label>
+              </div>
+
+
+              <label class="control-label">Location:</label>
+              <select class="form-control" name="Location">
+                <option value="volvo">Main</option>
+                <option value="saab">Downtown</option>
+                <option value="fiat">Calle</option>
+              </select><br>
+              <div class="radio checkedInOut">
+                <label><input type="radio" name="checkedOut"> IN </label>
+                <label><input type="radio" name="checkedOut"> OUT </label>
+              </div>
+              <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+              <script>
+              $("#input-dim-1").fileinput({
+                  uploadUrl: "/file-upload-batch/2",
+                  allowedFileExtensions: ["jpg", "png", "gif"],
+                  minImageWidth: 50,
+                  minImageHeight: 50
+              });
+              </script>
+            </div>
+            <p><a class="btn submitBox" href="boxIndex.html" role="button">
+              <i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i>
+            </a></p>
+
+          </form>
         </div>
       </div>
 

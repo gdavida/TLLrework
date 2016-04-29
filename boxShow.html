@@ -26,6 +26,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   
     <link rel="stylesheet" type="text/css" href="public/main.css">
+    <link rel="stylesheet" type="text/css" href="public/boxes.css">
   </head>
 
   <body>
@@ -45,7 +46,7 @@
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div class="jumbotron"><!-- 
       <div class="container">
         <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-m-offset-4">
           <img class="logoImage img-responsive" src="public/tll-logo.png">
@@ -54,34 +55,80 @@
           <h3 class="slogan">PLAY. LEARN. GROW.</h3>
           <p class="slogan">Free toy lending library for children from birth to age five.</p>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div class="container">
       <!-- Example row of columns -->
       <div class="row addNewSection">
-        <!-- NEW TOY -->
-        <div class="col-xs-12 col-md-4 newToyMainSection">
-          <p><a class="btn addToy" href="toyNew.html" role="button">
-            <i class="fa fa-plus-circle fa-5x" aria-hidden="true"></i>
-          </a></p>
-          <h2>New Toy</h2>
-          <p>Add a new toy to the toy inventory.</p>
-        </div>
 
         <!-- COLOR BACKGROUND ROW -->
-        <div class="col-xs-12 col-md-4 colorRow">
+        <div class="col-xs-12 col-md-4 colorRow headerColorRow">
+          <h1>SHOW THIS BOX</h1>
         </div>
 
-        <!-- NEW BOX -->
-        <div class="col-xs-12 col-md-4 newBoxMainSection">
-          <p><a class="btn addBox" href="#" role="button">
-            <i class="fa fa-plus-circle fa-5x" aria-hidden="true"></i>
-          </a></p>
-          <h2>New Box</h2>
-          <p>Create a new box, assign toys to the box, and create labels for the box.</p>
+        <!-- SHOW TOY CARD -->
+        <div class="col-xs-12 col-md-4 col-md-6 col-md-offset-3">
+            <div class="card">
+                <div class="card-image">
+                  <div class="row toyInBoxTags">
+                      <div class="col-xs-3">
+                        <img class="img-responsive" src="http://ecx.images-amazon.com/images/I/71vjqnKDReL._SX355_.jpg">
+                      </div>
+                      <div class="col-xs-9">
+                        <p>FLEXI-LOOP</p>
+                        <p>1 piece</p>
+                    </div>
+                  </div>
+                  <div class="row toyInBoxTags">
+                      <div class="col-xs-3">
+                        <img class="img-responsive" src="http://www.toysrus.com/graphics/product_images/pTRU1-5744994reg.jpg">
+                      </div>
+                      <div class="col-xs-9">
+                        <p>LINKS</p>
+                        <p>4 pieces</p>
+                    </div>
+                  </div>
+                  <div class="row toyInBoxTags">
+                      <div class="col-xs-3">
+                        <img class="img-responsive" src="http://www.dhresource.com/0x0s/f2-albu-g4-M00-83-69-rBVaEFbvvfWAPYO7AAS2nalp93o574.jpg/new-baby-039-s-cognitive-cloth-book-4-pcs.jpg">
+                      </div>
+                      <div class="col-xs-9">
+                        <p>LEARNING WITH ANIMALS BOOK</p>
+                        <p>1 piece</p>
+                    </div>
+                  </div>
+                  <div class="row toyInBoxTags">
+                      <div class="col-xs-3">
+                        <img class="img-responsive" src="http://ekmpowershop9.com/ekmps/shops/bargainwarehous/images/toy-squeezy-duck-plastic-5cm-yellow-pw-9465-p.jpg">
+                      </div>
+                      <div class="col-xs-9">
+                        <p>DUCK</p>
+                        <p>1 piece</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <h3 class="card-title">A1</h3>
+                    </div>
+                    <div class="col-xs-9">
+                      <h6 class="pieces">7 pieces</h6>
+                    </div>
+                </div>
+              </div>
+                <div class="card-action">
+                    <a href="#" target="new_blank">Age: 0 - 3 Months</a>
+                </div>
+            </div>
         </div>
+        <div class="col-xs-12 col-md-4">
+          <h4><a href="boxIndex.html">See All Boxes</a></h4>
+        </div> 
+      
       </div>
+    </div>
 
       <hr>
 
