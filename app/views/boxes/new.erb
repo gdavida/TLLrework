@@ -1,0 +1,59 @@
+
+  <link rel="stylesheet" type="text/css" href="<%= url("/boxes.css")%>">
+  <div class="jumbotron">
+  </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row addNewSection">
+
+        <!-- COLOR BACKGROUND ROW -->
+        <div class="col-xs-12 col-md-4 colorRow headerColorRow">
+          <h1>CREATE NEW BOX</h1>
+
+        <!-- ERROR MESSAGE AREA, should turn into form validations instead !!!! -->
+        <!-- !!!!!!!!!    !!!!!!!!!!   !!!!!   !!!!!!!!   !!!!!!!!!!  ! !!!!!!! -->
+        </div>
+          <% if @box.errors.any? %>
+          <div class="row">
+            <div class="col s12 m6">
+                  <ul>
+                    <% @box.errors.full_messages.each do |e| %>
+                      <li><%= e %></li>
+                    <% end %>
+                  </ul>
+            </div>
+          </div>
+        <% end %>    
+
+        <!-- NEW TOY FORM -->
+        <div class="col-xs-12 col-md-4 boxForm">
+          <form action="/boxes/<%= @box.id %>" method="post" >
+            <div class="form-group">
+              <label class="control-label">Box Name:</label>
+              <input class="form-control" type="text" name="name" value="<%=@box.name %>"><br>
+              
+              <label class="control-label">Age Group:</label>
+                <select class="form-control" name="age_group_id">
+                  <% @age_groups.each do |a| %>
+                    <option value="<%= a.id %>">
+                      <%= a.age %>
+                    </option>
+                  <% end %>
+                </select><br>
+
+                <!-- ADD RADIO BUTTONS FOR TOY SELECTION -->
+
+              <label class="control-label">Location:</label>
+              <input class="form-control" type="text" name="location" value="<%= @box.location %>"><br>
+              
+              <label class="control-label">Status:</label>
+              <input class="form-control" type="text" name="status" value="<%= @box.status %>"><br>
+
+            <button type="submit">
+              <i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i>
+            </button>
+
+        </div>
+      </form>
+    </div>

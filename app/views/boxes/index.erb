@@ -1,0 +1,36 @@
+
+    <link rel="stylesheet" type="text/css" href="<%= url("/boxes.css")%>">
+
+    <!-- COLOR BACKGROUND ROW -->
+    <div class="col-xs-12 col-md-4 colorRow">
+    </div>
+
+    <div class="container indexContainer">
+      <!-- Example row of columns -->
+      <div class="row">
+
+        <!-- NEW BOX -->
+        <div class="col-xs-12 col-md-4 newToyMainSection">
+          <p><a class="btn addToy" href="toys/new" role="button">
+            <i class="fa fa-plus-circle fa-5x" aria-hidden="true"></i>
+          </a></p>
+          <h3>Create New Box</h3>
+        </div>
+      </div>
+
+      <div class="row toysAll">
+        <!-- LIST OF ALL BOXES-->
+        <div class="col-xs-12 col-md-4 allToysSection">
+          <h2>Boxes Inventory</h2>
+          <ul>
+          <% @boxes.each do |b| %>
+            <li>
+              <a href="boxes/<%= b.id %>">
+              <%= b.name %>, <%= b.age_group.age %>
+              </a>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+
