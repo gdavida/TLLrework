@@ -2,16 +2,14 @@
 # ________________________________________
 
   # validates :name, present
-  # validates :upc, present
-  # validates :pic_url, present
-  # validates :pieces, present
-  # validates :box_id
+  # validates :status present
   # validates :age_group_id
+  # validates :location_id
 
 
   # belongs_to :age_group
-  # belongs_to :box
-
+  # belongs_to :location
+  # has_many :toys
 
 
 # ________________________________________
@@ -23,43 +21,43 @@
 # ________________________________________
 
 #-- INDEX --------
-# my "index" page for this model (@toys) will get and return a list of all of the items in that table
+# my "index" page for this model (@boxes) will get and return a list of all of the items in that table
 # (my @ variable is plural here because I am referring to ALL/multiple records)
 # I will code exactly what that looks like, what attributes to include and the format, etc, in the erb file
 #
-get "/toys/?" do
-  @toys = Toy.all
-  erb :"toys/index"
+get "/boxes/?" do
+  @boxes = Box.all
+  erb :"boxes/index"
 end
 
 #-- NEW ----------
 # my "new" page will be my way of getting a form to fill out for a new item into the Skill table
 # I will make form in the erb file, which will evantually, through "create" post that info to the db
 #
-get "/toys/new/?" do
-  @toy = Toy.new
+get "/boxes/new/?" do
+  @box = Box.new
   @age_groups = AgeGroup.all
   @age_group = AgeGroup.find_by_id(params['id'])
-  @boxes = Box.all
-  @box = Box.find_by_id(params['id'])
+  @toys = Toy.all
+  @toy = Toy.find_by_id(params['id'])
   @locations = Location.all
   @location = Location.find_by_id(params['id'])
-  erb :"/toys/new"
+  erb :"/boxes/new"
 end
 
 #-- SHOW ---------
 # When I want to look futher at a specific record I will look it up by its primary key (id")
 # In my erb file I format what information about each record I want to show
 #
-get "/toys/:id/?" do
-  @toy = Toy.find_by_id(params['id'])
+get "/boxes/:id/?" do
+  @box = Box.find_by_id(params['id'])
   @age_groups = AgeGroup.all
   @age_group = AgeGroup.find_by_id(params['id'])
-  @boxes = Box.all
-  @box = Box.find_by_id(params['id'])
+  @Toys = Toy.all
+  @toy = Toy.find_by_id(params['id'])
   @locations = Location.all
   @location = Location.find_by_id(params['id'])
-  erb :"toys/show"
+  erb :"boxes/show"
 end
 
 #-- EDIT ---------
@@ -67,15 +65,15 @@ end
 # In my erb file I will have an editable form, which will eventually, through "update" post that info to the db
 # (probably will look exactly like NEW only with info already in the form ready to be used or edited as needed)
 #
-get "/toys/:id/edit/?" do
-  @toy = Toy.find_by_id(params['id'])
+get "/boxes/:id/edit/?" do
+  @box = Box.find_by_id(params['id'])
   @age_groups = AgeGroup.all
   @age_group = AgeGroup.find_by_id(params['id'])
-  @boxes = Box.all
-  @box = Box.find_by_id(params['id'])
+  @toys = Toy.all
+  @toy = Toy.find_by_id(params['id'])
   @locations = Location.all
   @location = Location.find_by_id(params['id'])
-  erb :"toys/edit"
+  erb :"boxes/edit"
 end
 
 # ________________________________________
@@ -91,17 +89,17 @@ end
 # If the info I entered is good(ie it validates and therefor saves) I will be redirected to the INDEX where I will see the updated list of all items
 # Else I will stay on the new page, which in the erb file I will make sure it shows which errors showed up, so which validations must be met in order for it to save
 #
-post "/toys/?" do
-  @toy = Toy.new(name: params['name'],
+post "/boxes/?" do
+  @box = Box.new(name: params['name'],
                  upc: params['upc'],
                  pic_url: params['pic_url'],
                  pieces: params['pieces'],
                  age_group_id: params['age_group_id'],
                  box_id: params['box_id'])
-  if @toy.save
-    redirect to ("/toys")
+  if @box.save
+    redirect to ("/boxes")
   else
-    erb :"toys/new"
+    erb :"boxes/new"
   end
 end
 
@@ -114,18 +112,18 @@ end
 #     in the edit page under the form action include:
 #            <input type="hidden" name="_method" value="patch">
 
-patch "/toys/:id/?" do
-  @toy = Toy.find_by_id(params['id'])
+patch "/boxes/:id/?" do
+  @box = Box.find_by_id(params['id'])
 
-  if @toy.update_attributes(name: params['name'],
+  if @box.update_attributes(name: params['name'],
                  upc: params['upc'],
                  pic_url: params['pic_url'],
                  pieces: params['pieces'],
                  age_group_id: params['age_group_id'],
                  box_id: params['box_id'])
-    redirect to("/toys/#{@toy.id}")
+    redirect to("/boxes/#{@box.id}")
   else
-    erb :"toys/edit"
+    erb :"boxes/edit"
   end
 end
 # ________________________________________
@@ -136,9 +134,9 @@ end
 #
 #  find record by id and destroy it then redirect to the INDEX list of all items, which reflects the deletion
 #
-  delete "/toys/:id/?" do
-    @toy = Toy.find_by_id(params['id'])
-    @toy.destroy
-    redirect to("/toys")
+  delete "/boxes/:id/?" do
+    @box = Box.find_by_id(params['id'])
+    @box.destroy
+    redirect to("/boxes")
   end
 # ________________________________________

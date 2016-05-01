@@ -8,8 +8,7 @@
 
 
   # belongs_to :age_group
-  # belongs_to :location
-  # has_many :toys
+  # belongs_to :box
 
 
 class Toy < ActiveRecord::Base
