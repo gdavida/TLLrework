@@ -40,18 +40,20 @@
               <input class="form-control" type="text" name="pieces" value="<%= @toy.pieces %>"><br>
               
               <label class="control-label">Age Group:</label>
-                <select class="form-control" name="Age Group">
+                <select class="form-control" name="age_group_id">
                   <% @age_groups.each do |a| %>
-                    <option value="<%= a.id %>"><%= a.age %></option>
+                    <option value="<%= a.id %>">
+                      <%= a.age %>
+                    </option>
                   <% end %>
                 </select><br>
 
               <label class="control-label">PICTURE URL:</label>
               <input class="form-control" type="text" name="pic_url" value="<%= @toy.pic_url %>"><br>
             </div>
-            <p><a class="btn submitToy" type ="submit" name="action" href="toyIndex.html" role="button">
+            <button type="submit">
               <i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i>
-            </a></p>
+            </button>
 
           </form>
         </div>
