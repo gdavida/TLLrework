@@ -53,7 +53,7 @@ get "/boxes/:id/?" do
   @box = Box.find_by_id(params['id'])
   @age_groups = AgeGroup.all
   @age_group = AgeGroup.find_by_id(params['id'])
-  @Toys = Toy.all
+  @toys = Toy.where(box_id: params['id'])
   @toy = Toy.find_by_id(params['id'])
   @locations = Location.all
   @location = Location.find_by_id(params['id'])
@@ -61,6 +61,25 @@ get "/boxes/:id/?" do
 end
 
 #-- EDIT ---------
+# When I want to edit the details of a specific record, as referenced by its primary ket
+# In my erb file I will have an editable form, which will eventually, through "update" post that info to the db
+# (probably will look exactly like NEW only with info already in the form ready to be used or edited as needed)
+#
+get "/boxes/:id/edit/?" do
+  @box = Box.find_by_id(params['id'])
+  @age_groups = AgeGroup.all
+  @age_group = AgeGroup.find_by_id(params['id'])
+  @toys = Toy.all
+  @toy = Toy.find_by_id(params['id'])
+  @locations = Location.all
+  @location = Location.find_by_id(params['id'])
+  erb :"boxes/edit"
+end
+
+# ________________________________________
+
+# 
+#-- ADDTOYS ---------
 # When I want to edit the details of a specific record, as referenced by its primary ket
 # In my erb file I will have an editable form, which will eventually, through "update" post that info to the db
 # (probably will look exactly like NEW only with info already in the form ready to be used or edited as needed)
@@ -91,11 +110,9 @@ end
 #
 post "/boxes/?" do
   @box = Box.new(name: params['name'],
-                 upc: params['upc'],
-                 pic_url: params['pic_url'],
-                 pieces: params['pieces'],
-                 age_group_id: params['age_group_id'],
-                 box_id: params['box_id'])
+                 status: params['status'],
+                 location_id: params['location_id'],
+                 age_group_id: params['age_group_id'])
   if @box.save
     redirect to ("/boxes")
   else
@@ -116,11 +133,9 @@ patch "/boxes/:id/?" do
   @box = Box.find_by_id(params['id'])
 
   if @box.update_attributes(name: params['name'],
-                 upc: params['upc'],
-                 pic_url: params['pic_url'],
-                 pieces: params['pieces'],
-                 age_group_id: params['age_group_id'],
-                 box_id: params['box_id'])
+                 status: params['status'],
+                 location_id: params['location_id'],
+                 age_group_id: params['age_group_id'])
     redirect to("/boxes/#{@box.id}")
   else
     erb :"boxes/edit"
