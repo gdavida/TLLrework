@@ -11,68 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 10) do
+ActiveRecord::Schema.define(version: 4) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "assigned_age_groups", force: :cascade do |t|
+  create_table "age_groups", force: :cascade do |t|
     t.string "age"
-  end
-
-  create_table "assigned_age_groups_boxes", id: false, force: :cascade do |t|
-    t.integer "assigned_age_group_id", null: false
-    t.integer "box_id",                null: false
-  end
-
-  create_table "assigned_age_groups_skills", id: false, force: :cascade do |t|
-    t.integer "assigned_age_group_id", null: false
-    t.integer "skill_id",              null: false
   end
 
   create_table "boxes", force: :cascade do |t|
     t.string  "name"
-    t.integer "assigned_age_group_id"
-    t.boolean "label"
-    t.string  "location"
-    t.boolean "cleaned"
-    t.boolean "checked_out"
+    t.string  "status"
+    t.integer "age_group_id"
+    t.integer "location_id"
   end
 
-  create_table "boxes_skills", id: false, force: :cascade do |t|
-    t.integer "box_id",   null: false
-    t.integer "skill_id", null: false
-  end
-
-  create_table "boxes_toys", id: false, force: :cascade do |t|
-    t.integer "box_id", null: false
-    t.integer "toy_id", null: false
-  end
-
-  create_table "skills", force: :cascade do |t|
-    t.string "name"
-    t.text   "description"
-  end
-
-  create_table "skills_toys", id: false, force: :cascade do |t|
-    t.integer "skill_id", null: false
-    t.integer "toy_id",   null: false
+  create_table "locations", force: :cascade do |t|
+    t.string "branch_name"
+    t.string "contact_name"
   end
 
   create_table "toys", force: :cascade do |t|
     t.string  "name"
-    t.string  "brand"
-    t.string  "mfg_website"
-    t.integer "quantity_wanted"
-    t.integer "quantity_have"
     t.string  "upc"
-    t.string  "mfg_suggested_age_range"
+    t.string  "pic_url"
     t.integer "pieces"
-    t.text    "extended_play_idea"
-    t.string  "store_purchased_from"
-    t.string  "purchase_price"
-    t.string  "country_of_origin"
-    t.boolean "batteries_required"
+    t.integer "box_id"
+    t.integer "age_group_id"
   end
 
 end
