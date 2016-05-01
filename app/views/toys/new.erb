@@ -1,0 +1,58 @@
+
+  <link rel="stylesheet" type="text/css" href="<%= url("/toys.css")%>">
+  <div class="jumbotron">
+  </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row addNewSection">
+
+        <!-- COLOR BACKGROUND ROW -->
+        <div class="col-xs-12 col-md-4 colorRow headerColorRow">
+          <h1>ADD NEW TOY</h1>
+
+        <!-- ERROR MESSAGE AREA, should turn into form validations instead !!!! -->
+        <!-- !!!!!!!!!    !!!!!!!!!!   !!!!!   !!!!!!!!   !!!!!!!!!!  ! !!!!!!! -->
+        </div>
+          <% if @toy.errors.any? %>
+          <div class="row">
+            <div class="col s12 m6">
+                  <ul>
+                    <% @toy.errors.full_messages.each do |e| %>
+                      <li><%= e %></li>
+                    <% end %>
+                  </ul>
+            </div>
+          </div>
+        <% end %>    
+
+        <!-- NEW TOY FORM -->
+        <div class="col-xs-12 col-md-4 toyForm">
+          <form action="/toys/<%= @toy.id %>" method="post" >
+            <div class="form-group">
+              <label class="control-label">Toy Name:</label>
+              <input class="form-control" type="text" name="name" value="<%=@toy.name %>"><br>
+
+              <label class="control-label">UPC:</label>
+              <input class="form-control" type="text" name="upc" value="<%= @toy.upc %>"><br>
+              
+              <label class="control-label">Pieces:</label>
+              <input class="form-control" type="text" name="pieces" value="<%= @toy.pieces %>"><br>
+              
+              <label class="control-label">Age Group:</label>
+                <select class="form-control" name="Age Group">
+                  <% @age_groups.each do |a| %>
+                    <option value="<%= a.id %>"><%= a.age %></option>
+                  <% end %>
+                </select><br>
+
+              <label class="control-label">PICTURE URL:</label>
+              <input class="form-control" type="text" name="pic_url" value="<%= @toy.pic_url %>"><br>
+            </div>
+            <p><a class="btn submitToy" type ="submit" name="action" href="toyIndex.html" role="button">
+              <i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i>
+            </a></p>
+
+          </form>
+        </div>
+      </div>
