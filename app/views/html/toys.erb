@@ -1,4 +1,6 @@
 
+    <link rel="stylesheet" type="text/css" href="public/toys.css">
+
 
     <!-- COLOR BACKGROUND ROW -->
     <div class="col-xs-12 col-md-4 colorRow">
@@ -10,7 +12,7 @@
 
         <!-- NEW TOY -->
         <div class="col-xs-12 col-md-4 newToyMainSection">
-          <p><a class="btn addToy" href="toys/new" role="button">
+          <p><a class="btn addToy" href="toyNew.html" role="button">
             <i class="fa fa-plus-circle fa-5x" aria-hidden="true"></i>
           </a></p>
           <h3>Add New Toy</h3>
@@ -22,13 +24,12 @@
         <div class="col-xs-12 col-md-4 allToysSection">
           <h2>Toy Inventory</h2>
           <ul>
-          <% @toys.each do |t| %>
-            <li>
-              <a href="toys/<%= t.id %>">
-              <%= t.name %>, <%= t.age_group.age %>
-              </a>
-            </li>
-          <% end %>
+            <li><a href="toyShow.html">Flexi-Loops, 0 - 3 months</a></li>
+            <li>Rattle-n-Roll, 3 - 6 months</li>
+            <li>Stacking Fun Cups, 6 -12 months</li>
+            <li>Press-n-Go Inchworm, 1 year </li>
+            <li>Junior Rainbow Blocks, 2 years</li>
+            <li>Magnetic Puzzle Game - fishing, 3 - 5 years</li>
           </ul>
         </div>
       </div>
