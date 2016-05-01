@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 4) do
 
   create_table "age_groups", force: :cascade do |t|
     t.string "age"
+    t.string "color"
   end
 
   create_table "boxes", force: :cascade do |t|
